@@ -1,16 +1,20 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "./assets/vite.svg";
-import heroImg from "./assets/hero.png";
 import "./App.css";
+import Header from "./components/Header";
+import FinanceDashboard from "./pages/FinanceDashboard";
+
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <h1 class="text-red-500 text-2xl font-bold">Tailwind Test</h1>
-    </>
+    <div className="min-h-screen bg-gray-100">
+      
+      {/* Navbar */}
+      <Header />
+
+      {/* Main Content */}
+      <main className="p-4 md:p-6">
+        <FinanceDashboard />
+      </main>
+    </div>
   );
 }
 
