@@ -8,7 +8,6 @@ function FinanceDashboard() {
     "Insights",
     "Setting",
     "help",
-    "settings",
     "report",
   ];
   return (

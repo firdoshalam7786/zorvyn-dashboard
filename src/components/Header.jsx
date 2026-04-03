@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AppContext } from "../context/AppContext";
 
 function Header() {
   const [input, setInput] = useState("");
-  
+  const {role, setRole} = useContext(AppContext)
+
   return (
     <header className="w-full bg-white border-b px-4 py-3 flex items-center justify-between gap-4">
       
@@ -14,12 +16,21 @@ function Header() {
           F
         </div>
 
+
         {/* Account */}
-        <select className="text-sm bg-gray-100 px-2 py-1 rounded-md outline-none">
+        <div className="flex item-center gap-3">
+        <select className="text-sm bg-gray-100 px-2 py-1 rounded-md outline-none"
+        value={role}
+        onChange={(e) => setRole(e.target.value)}
+
+        >
           <option>Admin</option>
           <option>Viewer</option>
         </select>
-
+        <span className="text-sm text-gray-500">
+          Current:{role}
+        </span>
+       </div>
         {/* Breadcrumb */}
         <span className="text-gray-400 text-sm">{">>"}</span>
         <span className="text-green-600 text-sm font-medium">
