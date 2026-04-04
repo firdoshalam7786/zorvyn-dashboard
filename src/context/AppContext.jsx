@@ -15,6 +15,7 @@ export function AppProvider({ children }) {
   const [filters, setFilters] = useState({
     search: "",
     type: "all",
+    category: "all",
   });
 
   // save to localStorage

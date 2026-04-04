@@ -24,8 +24,8 @@ function Header() {
         onChange={(e) => setRole(e.target.value)}
 
         >
-          <option>Admin</option>
-          <option>Viewer</option>
+          <option value="admin">Admin</option>
+          <option value="viewer">Viewer</option>
         </select>
         <span className="text-sm text-gray-500">
           Current:{role}

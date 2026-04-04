@@ -1,5 +1,8 @@
 import { useState } from "react";
 import Cards from "../components/Cards";
+import TransactionsTab from "../components/TransactionsTab";
+import Filtering from "../components/Filtering";
+import ChartBalance from "../components/ChartBalance";
 
 function FinanceDashboard() {
   const [activeTab, setActiveTab] = useState("dashboard");
@@ -57,14 +60,16 @@ function FinanceDashboard() {
             </button>
           </div>
 
-          <div className="h-48 flex items-center justify-center text-gray-400 text-sm">
-            Chart will appear here
-          </div>
+        
+            <ChartBalance />
+       
         </div>
 
         {/* Expense  */}
         <div className="bg-white rounded-2xl p-5 shadow-sm border">
-          <h3 className="text-md font-semibold text-gray-700 mb-4">All Expenses</h3>
+          <h3 className="text-md font-semibold text-gray-700 mb-4">
+            All Expenses
+          </h3>
 
           <div className="h-40 flex items-center justify-center text-gray-400 text-sm">
             Pie chart here
@@ -72,17 +77,12 @@ function FinanceDashboard() {
         </div>
       </div>
 
-      {/* Bottom */}
+      {/* TransactionsTab */}
       <div className="grid gap-5 grid-cols-1 xl:grid-cols-3">
         {/* Transactions */}
-        <div className="xl:col-span-2 bg-white rounded-2xl p-5 shadow-sm border">
-          <h3 className="text-md font-semibold text-gray-700 mb-4">
-            Recent Transactions
-          </h3>
-
-          <div className="text-center text-gray-400 text-sm py-10">
-            No transaction data yet
-          </div>
+        <div className="xl:col-span-2">
+          <Filtering />
+          <TransactionsTab />
         </div>
 
         {/* Insights */}
