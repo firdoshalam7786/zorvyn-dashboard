@@ -3,6 +3,7 @@ import Cards from "../components/Cards";
 import TransactionsTab from "../components/TransactionsTab";
 import Filtering from "../components/Filtering";
 import ChartBalance from "../components/ChartBalance";
+import SpendingPie from "../components/SpendingPie";
 
 function FinanceDashboard() {
   const [activeTab, setActiveTab] = useState("dashboard");
@@ -71,9 +72,7 @@ function FinanceDashboard() {
             All Expenses
           </h3>
 
-          <div className="h-40 flex items-center justify-center text-gray-400 text-sm">
-            Pie chart here
-          </div>
+          <SpendingPie />
         </div>
       </div>
 
