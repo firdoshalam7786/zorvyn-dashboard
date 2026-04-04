@@ -18,7 +18,7 @@ export const data = [
   {
     id: "txn_3",
     title: "Netflix Subscription",
-    amount: 799,
+    amount: 1500,
     type: "expense",
     category: "Entertainment",
     date: "2026-04-03",
@@ -26,9 +26,25 @@ export const data = [
   {
     id: "txn_4",
     title: "Freelance Work",
-    amount: 12000,
+    amount: 14000,
     type: "income",
     category: "Freelance",
     date: "2026-04-04",
   },
+  {
+  id: "txn_5",
+  title: "Old Expense",
+  amount: 2000,
+  type: "expense",
+  category: "Food",
+  date: "2026-03-10",
+},
+{
+  id: "txn_6",
+  title: "Shopping",
+  amount: 5000,
+  type: "expense",
+  category: "Shopping",
+  date: "2026-04-05",
+}
 ];

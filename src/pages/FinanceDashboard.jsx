@@ -4,6 +4,7 @@ import TransactionsTab from "../components/TransactionsTab";
 import Filtering from "../components/Filtering";
 import ChartBalance from "../components/ChartBalance";
 import SpendingPie from "../components/SpendingPie";
+import Insights from "../components/Insights";
 
 function FinanceDashboard() {
   const [activeTab, setActiveTab] = useState("dashboard");
@@ -85,17 +86,7 @@ function FinanceDashboard() {
         </div>
 
         {/* Insights */}
-        <div className="bg-gradient-to-r from-green-400 to-green-600 text-white rounded-2xl p-5 flex flex-col justify-between">
-          <h3 className="text-lg font-semibold">Smart Financial Tips</h3>
-
-          <p className="text-sm opacity-90 mt-2">
-            Track your spending and save more each month.
-          </p>
-
-          <button className="mt-4 bg-white text-green-600 py-1 rounded-md text-sm">
-            Learn More
-          </button>
-        </div>
+        <Insights/> 
       </div>
     </div>
   );
