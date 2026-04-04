@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Cards from "../components/Cards";
 
 function FinanceDashboard() {
   const [activeTab, setActiveTab] = useState("dashboard");
@@ -43,30 +44,7 @@ function FinanceDashboard() {
       </div>
 
       {/* Cards */}
-      <div className="grid gap-5 grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
-        <div className="bg-white rounded-2xl p-5 shadow-sm border flex flex-col gap-2">
-          <span className="text-sm text-gray-500">Balance</span>
-          <h2 className="text-xl font-bold">$0.00</h2>
-          <button className="mt-2 bg-green-600 text-white py-1 rounded-md text-sm">
-            Send
-          </button>
-        </div>
-
-        <div className="bg-white rounded-2xl p-5 shadow-sm border">
-          <span className="text-sm text-gray-500">Income</span>
-          <h2 className="text-xl font-bold mt-1">$0.00</h2>
-        </div>
-
-        <div className="bg-white rounded-2xl p-5 shadow-sm border">
-          <span className="text-sm text-gray-500">Expenses</span>
-          <h2 className="text-xl font-bold mt-1">$0.00</h2>
-        </div>
-
-        <div className="bg-white rounded-2xl p-5 shadow-sm border">
-          <span className="text-sm text-gray-500">Transactions</span>
-          <h2 className="text-xl font-bold mt-1">0</h2>
-        </div>
-      </div>
+      <Cards />
 
       {/* Mid Section */}
       <div className="grid gap-5 grid-cols-1 xl:grid-cols-3">
@@ -86,7 +64,7 @@ function FinanceDashboard() {
 
         {/* Expense  */}
         <div className="bg-white rounded-2xl p-5 shadow-sm border">
-          <h3 className="text-md font-semibold text-gray-700 mb-4">Expenses</h3>
+          <h3 className="text-md font-semibold text-gray-700 mb-4">All Expenses</h3>
 
           <div className="h-40 flex items-center justify-center text-gray-400 text-sm">
             Pie chart here
