@@ -9,7 +9,6 @@ export function AppProvider({ children }) {
     return setLocalStorage ? JSON.parse(setLocalStorage) : data;
   });
 
-  //Roles
   const [role, setRole] = useState("viewer");
   //filter
   const [filters, setFilters] = useState({

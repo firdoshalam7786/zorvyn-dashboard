@@ -41,7 +41,7 @@ function Insights() {
       }
     });
 
-    // Monthly % change
+    // Monthly percentage change
     let percentChange = 0;
 
     if (lastExpense > 0) {
