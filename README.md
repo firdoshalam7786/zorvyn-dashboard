@@ -5,7 +5,7 @@ This project helps users track their income, expenses, and overall financial act
 
 ---
 
-## Deploy Live Link
+## Deploy Project
 [ Live Demo ](https://vercel.com/firdoshalam7786s-projects/zorvyn-dashboard/4Td8MQPK4dS32qQA1u5U82cQi6bZ#:~:text=zorvyn%2Ddashboard%2Dgit%2Dmain%2Dfirdoshalam7786s%2Dprojects.vercel.app)
 
 ## Features
