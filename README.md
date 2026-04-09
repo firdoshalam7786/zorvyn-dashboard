@@ -7,6 +7,7 @@ This project helps users track their income, expenses, and overall financial act
 
 ## Deploy Project
 [ Live Demo ](https://zorvyn-dashboard-green-ten.vercel.app)
+Live Project Url = https://zorvyn-dashboard-green-ten.vercel.app
 
 ## Features
 
