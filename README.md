@@ -47,6 +47,7 @@ Live Project Url: https://zorvyn-dashboard-green-ten.vercel.app
 * Tailwind CSS
 * Chart.js / React Chart.js 2
 * Context API (State Management)
+* react-icons(For Icon)
 
 ---
 
