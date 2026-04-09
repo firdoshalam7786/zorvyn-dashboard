@@ -4,24 +4,16 @@ import useDebounce from "../hooks/useDebounce";
 import { filterTransactions } from "../utils/filterTransactions";
 
 function TransactionsTab({ setEditData, setShowModal }) {
-  const {
-    transaction = [],
-    role,
-    filters,
-    deleteTxn,
-  } = useContext(AppContext);
+  const { transaction = [], role, filters, deleteTxn } = useContext(AppContext);
+  const debouncedSearch = useDebounce(filters.search || "");
 
   // Debounce search
-  const debouncedSearch = useDebounce(filters.search);
-
-  // Filtered data
   const filteredData = useMemo(() => {
     return filterTransactions(transaction, filters, debouncedSearch);
   }, [transaction, filters, debouncedSearch]);
 
   return (
     <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-5 h-[400px] flex flex-col">
-
       {/* Header */}
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-lg font-semibold">Transactions</h2>
@@ -33,7 +25,6 @@ function TransactionsTab({ setEditData, setShowModal }) {
       {/*Desktop Table*/}
       <div className="hidden sm:block overflow-y-auto flex-1">
         <table className="w-full text-sm text-left min-w-[600px]">
-          
           <thead className="border-b border-gray-400 text-gray-500">
             <tr>
               <th className="py-2">Date</th>
@@ -80,9 +71,7 @@ function TransactionsTab({ setEditData, setShowModal }) {
 
                   <td
                     className={`font-medium ${
-                      item.type === "income"
-                        ? "text-green-600"
-                        : "text-red-500"
+                      item.type === "income" ? "text-green-600" : "text-red-500"
                     }`}
                   >
                     ₹ {item.amount.toLocaleString()}
@@ -118,7 +107,6 @@ function TransactionsTab({ setEditData, setShowModal }) {
 
       {/*Mobile Cards */}
       <div className="sm:hidden space-y-3 mt-3 overflow-y-auto flex-1">
-
         {filteredData.length === 0 ? (
           <div className="text-center py-6 text-gray-400">
             No transaction found
@@ -145,9 +133,7 @@ function TransactionsTab({ setEditData, setShowModal }) {
               </div>
 
               {/* Category */}
-              <p className="text-sm text-gray-500 mt-1">
-                {item.category}
-              </p>
+              <p className="text-sm text-gray-500 mt-1">{item.category}</p>
 
               {/* Bottom */}
               <div className="flex justify-between mt-1">
@@ -157,9 +143,7 @@ function TransactionsTab({ setEditData, setShowModal }) {
 
                 <span
                   className={`font-semibold ${
-                    item.type === "income"
-                      ? "text-green-600"
-                      : "text-red-500"
+                    item.type === "income" ? "text-green-600" : "text-red-500"
                   }`}
                 >
                   ₹ {item.amount.toLocaleString()}
@@ -187,13 +171,10 @@ function TransactionsTab({ setEditData, setShowModal }) {
                   </button>
                 </div>
               )}
-
             </div>
           ))
         )}
-
       </div>
-
     </div>
   );
 }

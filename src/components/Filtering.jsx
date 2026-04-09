@@ -6,12 +6,18 @@ function Filtering() {
   //categories find out
   const categories = ["All", ...new Set(transaction.map((t) => t.category))];
 
-  const handleChange = (field, value) => {
-    setFilters((prev) => ({
-      ...prev,
-      [field]: value,
-    }));
-  };
+ const handleChange = (field, value) => {
+  setFilters((prev) => {
+    const updated = { ...prev, [field]: value };
+
+    // 🔥 If "All" selected → reset search
+    if (value === "all") {
+      updated.search = "";
+    }
+
+    return updated;
+  });
+};
   return (
     <div className="bg-white p-4 rounded-xl border border-gray-300 shadow-sm mb-4 flex flex-wrap gap-3">
       {/* Search */}
