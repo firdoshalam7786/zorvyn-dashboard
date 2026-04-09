@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { AppContext } from "../context/AppContext";
-import { FiBell, FiMessageCircle, FiPlus, FiSearch } from "react-icons/fi";
+import { FiBell, FiChevronRight, FiMessageCircle, FiPlus, FiSearch } from "react-icons/fi";
 
 function Header({ setShowModal }) {
   const [input, setInput] = useState("");
@@ -35,7 +35,7 @@ function Header({ setShowModal }) {
 
         {/* Breadcrumb */}
         <div className="hidden md:flex items-center gap-2">
-          <span className="text-gray-400 text-sm">{">>"}</span>
+          <span className="text-gray-400 text-sm"><FiChevronRight/></span>
           <span className="text-green-600 text-sm font-medium border border-gray-200 rounded bg-gray-100 px-2 py-2">
             Dashboard
           </span>
