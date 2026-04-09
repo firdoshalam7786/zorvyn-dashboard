@@ -18,6 +18,20 @@ export function AppProvider({ children }) {
     category: "all",
   });
 
+  const addTxn = (txn) => {
+    setTransaction((prev) => [{ ...txn, id: Date.now().toString() }, ...prev]);
+  };
+
+  const editTxn = (updatedTxn) => {
+    setTransaction((prev) =>
+      prev.map((t) => (t.id === updatedTxn.id ? updatedTxn : t)),
+    );
+  };
+
+  const deleteTxn = (id) => {
+    setTransaction((prev) => prev.filter((t) => t.id !== id));
+  };
+
   // save to localStorage
   useEffect(() => {
     localStorage.setItem("finance_data", JSON.stringify(transaction));
@@ -30,12 +44,15 @@ export function AppProvider({ children }) {
 
   // Delete transaction
   const deleteTransaction = (id) => {
-    setTransaction((prev) => prev.filter((t) => t.id !== t.id));
+    setTransaction((prev) => prev.filter((t) => t.id !== id));
   };
   return (
     <AppContext.Provider
       value={{
         transaction,
+        addTxn,
+        editTxn,
+        deleteTxn,
         addTransaction,
         deleteTransaction,
         role,

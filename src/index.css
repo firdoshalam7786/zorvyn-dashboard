@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+body{
+    font-family: "Inter", sans-serif;
+}
+
+.search{
+  margin-left: auto;
+  padding: .5rem;
+
+}

@@ -1,5 +1,6 @@
 import { useContext, useMemo } from "react";
 import { AppContext } from "../context/AppContext";
+import { MdInsertChart, MdLightbulb, MdPayment } from "react-icons/md";
 
 function Insights() {
   const { transaction = [] } = useContext(AppContext);
@@ -44,8 +45,7 @@ function Insights() {
     let percentChange = 0;
 
     if (lastExpense > 0) {
-      percentChange =
-        ((currentExpense - lastExpense) / lastExpense) * 100;
+      percentChange = ((currentExpense - lastExpense) / lastExpense) * 100;
     }
 
     return {
@@ -56,46 +56,59 @@ function Insights() {
   }, [transaction]);
 
   return (
-    <div className="flex flex-col gap-4">
-      
-      {/* Highest Spending */}
-      <div className="bg-white p-4 rounded-xl shadow-sm border">
-        <p className="text-sm text-gray-500">Top Spending</p>
-        <h3 className="text-lg font-semibold">
-          {insights.topCategory}
-        </h3>
-        <p className="text-sm text-red-500">
-          ₹ {insights.maxValue.toLocaleString()}
-        </p>
+  <div className="flex flex-col gap-4 h-full">
+    
+    {/* Spending */}
+    <div className="bg-white p-5 rounded-2xl shadow-sm border border-gray-200 flex flex-col justify-between min-h-[120px] hover:shadow-md transition">
+      <div className="flex items-center justify-between">
+        <p className="text-sm text-gray-500">Top Spending Category</p>
+        <span className="text-red-500"><MdPayment/></span>
       </div>
 
-      {/* Monthly Comparison */}
-      <div className="bg-white p-4 rounded-xl shadow-sm border">
-        <p className="text-sm text-gray-500">Monthly Change</p>
-        <h3
-          className={`text-lg font-semibold ${
-            insights.percentChange >= 0
-              ? "text-red-500"
-              : "text-green-600"
-          }`}
-        >
-          {insights.percentChange}%
-        </h3>
-        <p className="text-xs text-gray-400">
-          vs last month
-        </p>
-      </div>
+      <h3 className="text-lg font-semibold mt-2">
+        {insights.topCategory}
+      </h3>
 
-      {/* Tip */}
-      <div className="bg-white p-4 rounded-xl shadow-sm border">
-        <p className="text-sm text-gray-500">Tip</p>
-        <p className="text-sm">
-          Try reducing <b>{insights.topCategory}</b> expenses to save more.
-        </p>
-      </div>
-
+      <p className="text-sm text-red-500 mt-1">
+        ₹ {insights.maxValue.toLocaleString()}
+      </p>
     </div>
-  );
+
+    {/* Monthly Comparison */}
+    <div className="bg-white p-5 rounded-2xl shadow-sm border border-gray-200 flex flex-col justify-between min-h-[120px] hover:shadow-md transition">
+      <div className="flex items-center justify-between">
+        <p className="text-sm text-gray-500">Monthly Comparison</p>
+        <span><MdInsertChart/></span>
+      </div>
+
+      <h3
+        className={`text-lg font-semibold mt-2 ${
+          insights.percentChange >= 0
+            ? "text-green-600"
+            : "text-red-500"
+        }`}
+      >
+        {insights.percentChange}%
+      </h3>
+
+      <p className="text-xs text-gray-400 mt-1">
+        vs last month
+      </p>
+    </div>
+
+    <div className="bg-white p-5 rounded-2xl shadow-sm border border-gray-200 flex flex-col justify-between min-h-[120px] hover:shadow-md transition">
+      <div className="flex items-center justify-between">
+        <p className="text-sm text-gray-500">Tip</p>
+        <span><MdLightbulb/></span>
+      </div>
+
+      <p className="text-sm mt-2 leading-relaxed">
+        Try reducing <b>{insights.topCategory}</b> expenses to save more.
+      </p>
+    </div>
+
+  </div>
+);
 }
 
 export default Insights;
