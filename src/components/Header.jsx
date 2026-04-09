@@ -78,7 +78,7 @@ function Header({ setShowModal }) {
         {/* Profile */}
         <div className="flex items-center gap-2 cursor-pointer">
           <img
-            src="/src/assets/images/men.png"
+            src="men.png"
             alt="user"
             className="w-7 h-7 sm:w-8 sm:h-8 rounded-full"
           />
