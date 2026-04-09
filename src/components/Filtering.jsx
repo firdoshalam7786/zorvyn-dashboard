@@ -10,7 +10,6 @@ function Filtering() {
   setFilters((prev) => {
     const updated = { ...prev, [field]: value };
 
-    // 🔥 If "All" selected → reset search
     if (value === "all") {
       updated.search = "";
     }
